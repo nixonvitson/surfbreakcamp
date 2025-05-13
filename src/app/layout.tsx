@@ -1,9 +1,9 @@
 import React from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] });
+const inter = Montserrat({ subsets: ['latin', 'cyrillic'] });
 
 export const metadata: Metadata = {
   title: 'Surfbreak - Календарь программы',
