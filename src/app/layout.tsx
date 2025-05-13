@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 
-const inter = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ['400', '600', '700'] });
+const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], weight: ['400', '600', '700'] });
 
 export const metadata: Metadata = {
   title: 'Surfbreak - Календарь программы',
