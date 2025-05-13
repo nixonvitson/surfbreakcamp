@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${inter.className} bg-white min-h-screen text-slate-900`}>
+      <body className={`${montserrat.className} bg-white min-h-screen text-slate-900`}>
         {children}
       </body>
     </html>
