@@ -25,7 +25,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
       <div className="relative">
         <label htmlFor="start-date" className="block text-sm font-medium mb-2 text-slate-700">
-          Дата заезда
+          Первый день
         </label>
         <DatePicker
           id="start-date"
