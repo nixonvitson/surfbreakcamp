@@ -1,5 +1,5 @@
 import React from 'react';
-import './globals.css';
+import './globals.scss';
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${montserrat.className} bg-white min-h-screen text-slate-900`}>
+      <body className={`${montserrat.className} bg-white min-h-screen`}>
         {children}
       </body>
     </html>
