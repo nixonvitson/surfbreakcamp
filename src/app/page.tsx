@@ -63,7 +63,7 @@ export default function Home() {
         <header>
           <p>Выберите даты вашего пребывания для просмотра программы серфкемпа</p>
         </header>
-        
+
         <div className="w-full mb-8">
           <DateRangePicker
             startDate={startDate}
@@ -84,9 +84,14 @@ export default function Home() {
         </div>
 
         {errorMessage && (
-          <div className="mt-4 p-3 bg-red-50 text-red-700 border border-red-100 rounded-lg text-sm">
-            {errorMessage}
-          </div>
+          <>
+            <hr/>
+            <div
+              className="mt-4 p-3 bg-red-50 text-red-700 border border-red-100 rounded-lg text-sm data-picker__error-message">
+              {errorMessage}
+            </div>
+            <hr/>
+          </>
         )}
 
         {startDate && endDate && !errorMessage && (
@@ -102,7 +107,7 @@ export default function Home() {
         )}
       </div>
 
-      {curriculumData.length > 0 && startDate && (
+      {!errorMessage && curriculumData.length > 0 && startDate && (
         <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-slate-100 data-picker__result">
           <h2 className="text-2xl font-semibold mb-8 text-slate-900">Ваша программа</h2>
 
