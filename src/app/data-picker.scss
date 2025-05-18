@@ -5,7 +5,7 @@ body {
 main {
   min-height: 100vh;
   max-width: 1024px;
-  padding: 24px;
+  padding: 64px;
   margin: 0 auto;
 
   h2 {
@@ -13,15 +13,22 @@ main {
     font-size: 36px;
     line-height: 1.5;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+    }
   }
 
   hr {
     height: 2px;
-    background-color: rgb(43 127 255)
+    background-color:  #000;
   }
 
   @media (max-width: 768px) {
-    padding: 60px;
+    padding: 32px;
+  }
+  @media (max-width: 576px) {
+    padding: 24px;
   }
 }
 header {
@@ -34,47 +41,63 @@ header {
      font-size: 28px;
      font-weight: 400;
      text-align: center;
+
+     @media (max-width: 576px) {
+       font-size: 20px;
+     }
    }
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+  }
 }
 .date-picker {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  margin-bottom: 8px;
 
   @media (max-width: 768px) {
     grid-template-columns: 100%;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 }
 label {
   font-size: 24px;
   line-height: 1.5;
+  margin-bottom: 16px;
 
   @media (max-width: 768px) {
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  @media (max-width: 576px) {
+    font-size: 16px;
+    margin-bottom: 0;
   }
 }
 input {
+  width: 100%;
+  max-width: 150px;
   padding: 8px 12px;
   border-radius: 12px;
-  box-shadow:  0 0 2px 0 #fff;
-  border: 1px solid #fff;
-  color: #fff;
+  box-shadow:  0 0 2px 0 #000;
+  border: 1px solid #000;
+  color: #000;
   transition: border-width .3s, border-color .3s;
   outline: none;
 
   &::placeholder {
-    color: #fff;
+    color: #000;
     font-weight: 100;
   }
 
   &:hover, &:focus, &:focus-visible, &:active {
-    border-color: #fff;
-    border-width: 2px;
+    border-color: #3b82f6;
   }
   &:disabled {
-    box-shadow: 0 0 2px 0 rgb(0 0 0 / 20%);
-    //border-color: #000;
+    box-shadow: 0 0 2px 0 rgb(59 130 246);
+    border-color: #b8b8b8;
 
     &::placeholder {
       color: #b8b8b8;
@@ -82,48 +105,65 @@ input {
   }
 }
 .date-picker__container {
-  display: flex;
-  gap: 16px;
-}
-.data-picker__choose-wrapper {
-  background-color: #3b82f6;
-  border-radius: 15px;
-  padding: 16px;
-  color: #fff;
+  display: grid;
+  column-gap: 16px;
+  grid-template-columns: 160px 200px;
+
+  @media (max-width: 576px) {
+    row-gap: 8px;
+    grid-template-columns: 100%;
+  }
 }
 .data-picker__description {
   margin-bottom: 24px;
-
-  p {
-    color: rgb(255 255 255 / 70%);
-  }
 }
 .data-picker__target-date {
   margin: 16px 0;
   font-size: 24px;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 .data-picker__result {
   margin-top: 32px;
 }
 .data-picker__day {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 72px;
+  display: grid;
+  grid-template-columns: max-content 500px;
+  justify-content: center;
+  column-gap: 56px;
+  padding-bottom: 24px;
 
   .day {
+    display: none;
     font-size: 16px;
     font-weight: 700;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
   }
   .date {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 700;
     margin-bottom: 16px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    @media (max-width: 576px) {
+      font-size: 20px;
+    }
   }
   .day-of-week {
     text-transform: capitalize;
   }
-  .time-of-day {
-    margin: 0 8px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 100%;
+    margin-left: 32px;
   }
 }
 .data-picker__actions {
@@ -139,7 +179,54 @@ input {
     font-weight: 100;
   }
 }
+.data-picker__day-number {
+  font-size: 32px;
+  font-weight: 700;
 
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.data-picker__day-description {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+
+  &:before {
+    top: 14px;
+    left: calc(-28px - 6px);
+    width: 12px;
+    height: 12px;
+    border: 2px solid #c9bec9;
+    border-radius: 50%;
+
+    @media (max-width: 768px) {
+      top: 2px;
+    }
+  }
+  &:after {
+    top: 34px;
+    left: -27px;
+    width: 2px;
+    height: 100%;
+    background-color: #c9bec9;
+
+    @media (max-width: 768px) {
+      top: 22px;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+  }
+
+  @media (max-width: 576px) {
+    padding-bottom: 20px;
+  }
+}
 
 /* Datepicker light theme styles */
 .react-datepicker {
@@ -226,8 +313,8 @@ input {
 /* Mobile optimizations */
 @media (max-width: 640px) {
   .react-datepicker {
-    width: 95vw !important;
-    max-width: 95vw !important;
+    width: 58vw !important;
+    max-width: 58vw !important;
     left: 0 !important;
     transform: translateX(0) !important;
   }

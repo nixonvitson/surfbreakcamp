@@ -59,14 +59,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto">
-      <header className="mb-12 flex flex-col items-center">
-        <p className="text-slate-600 max-w-xl text-center">
-          Выберите даты вашего пребывания для просмотра программы серфкемпа
-        </p>
-      </header>
-
-      <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-12 border border-slate-100 data-picker__choose-wrapper">
-        <h2 className="text-xl font-semibold mb-6 text-slate-900">Выбор дат</h2>
+      <div className="bg-white rounded-xl shadow-sm p-6 md:p-8 mb-12 border border-slate-100">
+        <header>
+          <p>Выберите даты вашего пребывания для просмотра программы серфкемпа</p>
+        </header>
         
         <div className="w-full mb-8">
           <DateRangePicker
@@ -122,45 +118,30 @@ export default function Home() {
                   <div className="timeline-dot"></div>
                   
                   <div className="bg-slate-50 p-6 rounded-lg border border-slate-100 data-picker__day">
-                    <p className='day'>День {dayNumber}</p>
-                    <p className='date'><span className='day-of-week'>{formatDayOfWeek(item.date)}</span> {formatDate(item.date)}</p>
+                    <h4 className='data-picker__day-number'>День {dayNumber}</h4>
+                    <div className='data-picker__day-description'>
+                      <p className='day'>День {dayNumber}</p>
+                      <p className='date'><span className='day-of-week'>{formatDayOfWeek(item.date)}</span> {formatDate(item.date)}</p>
 
-                    <div className="data-picker__actions">
-                      <h4 className="text-slate-700 mb-4">{item.curriculum.description}</h4>
-
-                      <div className="flex items-start action">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <p className="font-medium text-slate-700 block time-of-day"><strong>Утро</strong>: {item.curriculum.schedule.morning}</p>
-                      </div>
-                      <div className="flex items-start action">
-                        <span className="flex items-center justify-center w-8 h-8 rounded-full bg-amber-100 text-amber-600 mr-3 shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path>
-                          </svg>
-                        </span>
-                        <div>
-                          <span className="font-medium text-slate-700 block time-of-day"><strong>День</strong>: </span>
-                          <span className="text-slate-600">{item.curriculum.schedule.afternoon}</span>
+                      <div className="data-picker__actions">
+                        <div className="flex items-start action">
+                          <p className="font-medium text-slate-700 block time-of-day"><strong>Утро</strong>: {item.curriculum.schedule.morning}</p>
                         </div>
-                      </div>
-                      <div className="flex items-start action">
-                          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 mr-3 shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                              <path d="M17 12a5 5 0 0 0-5-5m-5 5a5 5 0 0 0 5 5m0-10v10"></path>
-                              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
-                            </svg>
-                          </span>
+                        <div className="flex items-start action">
+                          <div>
+                            <span className="font-medium text-slate-700 block time-of-day"><strong>День</strong>: </span>
+                            <span className="text-slate-600">{item.curriculum.schedule.afternoon}</span>
+                          </div>
+                        </div>
+                        <div className="flex items-start action">
                           <div>
                             <span className="font-medium text-slate-700 block time-of-day"><strong>Вечер</strong>: </span>
                             <span className="text-slate-600">{item.curriculum.schedule.evening}</span>
                           </div>
-                        </div>
-                    </div>
+                      </div>
 
+                      </div>
+                    </div>
                   </div>
                 </div>
               );
