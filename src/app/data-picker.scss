@@ -134,7 +134,7 @@ input {
 }
 .data-picker__day {
   display: grid;
-  grid-template-columns: max-content 500px;
+  grid-template-columns: 130px 500px;
   justify-content: center;
   column-gap: 56px;
   padding-bottom: 24px;
@@ -163,6 +163,12 @@ input {
   }
   .day-of-week {
     text-transform: capitalize;
+  }
+
+  &:last-child {
+    .data-picker__day-description:after {
+      display: none;
+    }
   }
 
   @media (max-width: 768px) {

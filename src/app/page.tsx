@@ -119,33 +119,29 @@ export default function Home() {
               const dayNumber = differenceInDays(item.date, startDate) + 1;
               
               return (
-                <div key={index} className="relative pl-10">
-                  <div className="timeline-dot"></div>
-                  
-                  <div className="bg-slate-50 p-6 rounded-lg border border-slate-100 data-picker__day">
-                    <h4 className='data-picker__day-number'>День {dayNumber}</h4>
-                    <div className='data-picker__day-description'>
-                      <p className='day'>День {dayNumber}</p>
-                      <p className='date'><span className='day-of-week'>{formatDayOfWeek(item.date)}</span> {formatDate(item.date)}</p>
+                <div className="bg-slate-50 p-6 rounded-lg border border-slate-100 data-picker__day">
+                  <h4 className='data-picker__day-number'>День {dayNumber}</h4>
+                  <div className='data-picker__day-description'>
+                    <p className='day'>День {dayNumber}</p>
+                    <p className='date'><span className='day-of-week'>{formatDayOfWeek(item.date)}</span> {formatDate(item.date)}</p>
 
-                      <div className="data-picker__actions">
-                        <div className="flex items-start action">
-                          <p className="font-medium text-slate-700 block time-of-day"><strong>Утро</strong>: {item.curriculum.schedule.morning}</p>
-                        </div>
-                        <div className="flex items-start action">
-                          <div>
-                            <span className="font-medium text-slate-700 block time-of-day"><strong>День</strong>: </span>
-                            <span className="text-slate-600">{item.curriculum.schedule.afternoon}</span>
-                          </div>
-                        </div>
-                        <div className="flex items-start action">
-                          <div>
-                            <span className="font-medium text-slate-700 block time-of-day"><strong>Вечер</strong>: </span>
-                            <span className="text-slate-600">{item.curriculum.schedule.evening}</span>
-                          </div>
+                    <div className="data-picker__actions">
+                      <div className="flex items-start action">
+                        <p className="font-medium text-slate-700 block time-of-day"><strong>Утро</strong>: {item.curriculum.schedule.morning}</p>
                       </div>
+                      <div className="flex items-start action">
+                        <div>
+                          <span className="font-medium text-slate-700 block time-of-day"><strong>День</strong>: </span>
+                          <span className="text-slate-600">{item.curriculum.schedule.afternoon}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start action">
+                        <div>
+                          <span className="font-medium text-slate-700 block time-of-day"><strong>Вечер</strong>: </span>
+                          <span className="text-slate-600">{item.curriculum.schedule.evening}</span>
+                        </div>
+                    </div>
 
-                      </div>
                     </div>
                   </div>
                 </div>
