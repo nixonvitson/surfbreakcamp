@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { setDefaultOptions, differenceInDays } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { getCurriculumForDateRange, formatDate, formatDayOfWeek } from '../utils/dateUtils';
@@ -13,6 +13,14 @@ setDefaultOptions({ locale: ru });
 const DateRangePicker = dynamic(() => import('../components/DateRangePicker'), {
   ssr: false,
 });
+
+const sendHeight = () => {
+  const height = document.body.scrollHeight;
+  window.parent.postMessage(
+    { type: 'iframeHeight', height },
+    'https://surfbreak.ru'
+  );
+};
 
 // Min and max allowed dates
 const MIN_DATE = new Date(2025, 9, 4); // October 4, 2025
@@ -56,6 +64,23 @@ export default function Home() {
       setCurriculumData([]);
     }
   };
+
+  useEffect(() => {
+    // Отправляем высоту при загрузке и изменении контента
+    sendHeight();
+    window.addEventListener('resize', () => {
+      sendHeight()
+      console.log('resize')
+    })
+
+    return () => window.removeEventListener('resize', sendHeight);
+  }, []);
+
+  useEffect(() => {
+    if (startDate && endDate) {
+      sendHeight()
+    }
+  }, [endDate]);
 
   return (
     <main className="min-h-screen p-6 md:p-10 max-w-5xl mx-auto">
