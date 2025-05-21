@@ -1,0 +1,35 @@
+@import 'data-picker';
+
+@font-face {
+  font-family: 'FuturaPT';
+  src: url('/surfbreak-calendar/fonts/FuturaPT-Light.woff') format('woff2');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'FuturaPT';
+  src: url('/surfbreak-calendar/fonts/FuturaPT-Medium.woff') format('woff2');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'FuturaPT';
+  src: url('/surfbreak-calendar/fonts/FuturaPT-Bold.woff') format('woff2');
+  font-weight: 700;
+}
+
+:root {
+  --foreground-rgb: 15, 23, 42;
+  --background-rgb: 255, 255, 255;
+}
+
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'FuturaPT', 'Montserrat', 'Montserrat Fallback', Arial, sans-serif;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+
+}
