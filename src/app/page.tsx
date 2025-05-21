@@ -18,7 +18,7 @@ const sendHeight = () => {
   const height = document.body.scrollHeight;
   window.parent.postMessage(
     { type: 'iframeHeight', height },
-    'https://surfbreakcamp.vercel.app'
+    'https://surfbreak.ru'
   );
 };
 
