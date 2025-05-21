@@ -6,11 +6,11 @@
       "headers": [
         {
           "key": "X-Frame-Options",
-          "value": "ALLOWALL"
+          "value": "ALLOW-FROM https://surfbreak.ru"
         },
         {
           "key": "Content-Security-Policy",
-          "value": "frame-ancestors *"
+          "value": "frame-ancestors https://surfbreak.ru;"
         }
       ]
     }
