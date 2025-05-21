@@ -67,7 +67,6 @@ export default function Home() {
 
   useEffect(() => {
     if (startDate && endDate) {
-      console.log('change endDate')
       sendHeight()
     }
   }, [endDate]);
