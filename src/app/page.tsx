@@ -66,18 +66,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Отправляем высоту при загрузке и изменении контента
-    sendHeight();
-    window.addEventListener('resize', () => {
-      sendHeight()
-      console.log('resize')
-    })
-
-    return () => window.removeEventListener('resize', sendHeight);
-  }, []);
-
-  useEffect(() => {
     if (startDate && endDate) {
+      console.log('change endDate')
       sendHeight()
     }
   }, [endDate]);
