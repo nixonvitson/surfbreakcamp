@@ -48,7 +48,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
       </div>
       <div className="relative date-picker__container">
         <label htmlFor="end-date" className="block text-sm font-medium mb-2 text-slate-700">
-          Последний день
+          Последний день (день до отъезда)
         </label>
         <DatePicker
           id="end-date"
